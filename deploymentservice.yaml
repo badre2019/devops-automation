@@ -17,9 +17,9 @@ spec:
           image: bader20200/devops-integration # Image that will be used to containers in the cluster,
           # provide the name you gave in jenkins configuration
           # it's the image that will be pulled from dockerhub
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
-            - containerPort: 8080 # The port that the container is running on in the cluster
+            - containerPort: 8089 # The port that the container is running on in the cluster
 
 
 ---
@@ -34,5 +34,6 @@ spec:
   ports:
     - protocol: "TCP"
       port: 8080 # The port that the service is running on in the cluster
-      targetPort: 8080 # The port exposed by the service
+      targetPort: 8089 # The port exposed by the service
+      nodePort: 30080
   type: NodePort # type of the service.

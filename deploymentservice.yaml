@@ -17,9 +17,13 @@ spec:
           image: bader20200/devops-integration # Image that will be used to containers in the cluster,
           # provide the name you gave in jenkins configuration
           # it's the image that will be pulled from dockerhub
-          imagePullPolicy: Always
+          imagePullPolicy: Always #Avec imagePullPolicy: Always :
+          # Kubernetes téléchargera automatiquement la nouvelle image à chaque déploiement
+          # Pas besoin de rollout restart
+          #Pas besoin de modifier le pipeline
           ports:
             - containerPort: 8089 # The port that the container is running on in the cluster
+              # use the port of tomcat server specified in application.properties file or 8080
 
 
 ---
